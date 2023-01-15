@@ -1,0 +1,24 @@
+converte projeto em typescript
+https://docs.expo.dev/guides/typescript/
+
+estilar elemento biblioteca
+https://styled-components.com/
+yarn add styled-components
+npm install --save-dev @types/styled-components @types/styled-components-react-native
+
+extensoes vscode
+vscode-styled-components
+
+fonts
+expo install @expo-google-fonts/poppins
+
+loading
+expo install expo-app-loading
+
+biblioteca para trabalhar com proporcoes
+https://www.npmjs.com/package/react-native-responsive-fontsize
+yarn add react-native-responsive-fontsize
+
+biblioteca para iplone header and footer
+https://github.com/ptelad/react-native-iphone-x-helper
+npm i react-native-iphone-x-helper --save
