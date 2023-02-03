@@ -39,7 +39,7 @@ export function Dashboard() {
 
     {
       id: "2",
-      type: "postive",
+      type: "positive",
       title: "Desenvolvimento de mobile",
       amount: "R$ 12.500,00",
       category: { name: "Venda", icon: "coffee" },
@@ -80,30 +80,30 @@ export function Dashboard() {
               <UserName>Diego Borges</UserName>
             </User>
           </UserInfo>
-          <Icon name='power' />
+          <Icon name="power" />
         </UserWrapper>
       </Header>
 
       <HighlightCards>
         <HighlightCard
-          type='up'
-          title='Entradas'
-          amount='R$ 17.400,00'
-          lastTransaction='Última entrada dia 13 de abriel'
+          type="up"
+          title="Entradas"
+          amount="R$ 17.400,00"
+          lastTransaction="Última entrada dia 13 de abriel"
         />
 
         <HighlightCard
-          type='down'
-          title='Saídas'
-          amount='R$ 1.259,00'
-          lastTransaction='Última saída dia 03 de abriel'
+          type="down"
+          title="Saídas"
+          amount="R$ 1.259,00"
+          lastTransaction="Última saída dia 03 de abriel"
         />
 
         <HighlightCard
-          type='total'
-          title='Total'
-          amount='R$ 16.141.00'
-          lastTransaction='01 à 16 de abriel'
+          type="total"
+          title="Total"
+          amount="R$ 16.141.00"
+          lastTransaction="01 à 16 de abriel"
         />
       </HighlightCards>
 

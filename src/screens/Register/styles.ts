@@ -1,12 +1,12 @@
+import styled from "styled-components/native";
 import { RFValue } from "react-native-responsive-fontsize";
-import styled from "styled-components";
 
-export const Container = styled.view`
+export const Container = styled.View`
   flex: 1;
   background-color: ${({ theme }) => theme.colors.background};
 `;
 
-export const Heander = styled.view`
+export const Heander = styled.View`
   background-color: ${({ theme }) => theme.colors.primary};
 
   width: 100%;
@@ -17,16 +17,18 @@ export const Heander = styled.view`
   padding-bottom: 19px;
 `;
 
-export const Title = styled.view`
+export const Title = styled.Text`
   font-family: ${({ theme }) => theme.fonts.regular};
   font-size: ${RFValue(18)}px;
   color: ${({ theme }) => theme.colors.shape};
 `;
 
-export const Form = styled.view`
+export const Form = styled.View`
   flex: 1;
-
+  justify-content: space-between;
   width: 100%;
 
   padding: 24px;
 `;
+
+export const Fields = styled.View``;
