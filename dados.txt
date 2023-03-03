@@ -22,3 +22,8 @@ yarn add react-native-responsive-fontsize
 biblioteca para iplone header and footer
 https://github.com/ptelad/react-native-iphone-x-helper
 npm i react-native-iphone-x-helper --save
+
+
+ biblioteca  gesture-handler  
+   https://docs.swmansion.com/react-native-gesture-handler/docs/
+   yarn add react-native-gesture-handler
