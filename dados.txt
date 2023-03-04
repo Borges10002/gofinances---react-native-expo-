@@ -27,3 +27,9 @@ npm i react-native-iphone-x-helper --save
  biblioteca  gesture-handler  
    https://docs.swmansion.com/react-native-gesture-handler/docs/
    yarn add react-native-gesture-handler
+
+
+  biblioteca  React Hook Form
+    https://react-hook-form.com/ 
+
+  
