@@ -1,11 +1,10 @@
-import React, { useState } from "react";
-import { Modal } from "react-native";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { Modal, TouchableWithoutFeedback, Keyboard, Alert } from "react-native";
 
 import { Button } from "../../components/Form/Button";
 import { CategorySelectButton } from "../../components/Form/CategorySelectButton";
 
-import { Input } from "../../components/Form/Input";
 import { InputForm } from "../../components/Form/inputForm";
 import { TransactionTypeButton } from "../../components/Form/TransactionTypeButton";
 
@@ -13,10 +12,10 @@ import { CategorySelect } from "../CategorySelect";
 
 import {
   Container,
+  Fields,
+  Form,
   Heander,
   Title,
-  Form,
-  Fields,
   TransactionTypes,
 } from "./styles";
 
@@ -49,6 +48,11 @@ export function Register() {
   }
 
   function handleRegister(form: FormData) {
+    if (!transactionType) return Alert.alert("Selecione o tipo de transação");
+
+    if (category.key === "category")
+      return Alert.alert("Selecione a categoria");
+
     const data = {
       name: form.name,
       amount: form.amount,
@@ -58,43 +62,56 @@ export function Register() {
   }
 
   return (
-    <Container>
-      <Heander>
-        <Title>Cadastro</Title>
-      </Heander>
-      <Form>
-        <Fields>
-          <InputForm name="name" control={control} placeholder="Nome" />
-          <InputForm name="amount" control={control} placeholder="Preço" />
-          <TransactionTypes>
-            <TransactionTypeButton
-              onPress={() => handleTransactionsTypeSelect("up")}
-              type="up"
-              title="Income"
-              isActive={transactionType === "up"}
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <Container>
+        <Heander>
+          <Title>Cadastro</Title>
+        </Heander>
+        <Form>
+          <Fields>
+            <InputForm
+              name="name"
+              control={control}
+              placeholder="Nome"
+              autoCapitalize="sentences"
+              autoCorrect={false}
             />
-            <TransactionTypeButton
-              onPress={() => handleTransactionsTypeSelect("down")}
-              type="down"
-              title="Outcome"
-              isActive={transactionType === "down"}
+            <InputForm
+              name="amount"
+              control={control}
+              placeholder="Preço"
+              keyboardType="numeric"
             />
-          </TransactionTypes>
-          <CategorySelectButton
-            title={category.name}
-            onPress={handleOpenSelectCategoryModal}
-          />
-        </Fields>
-        <Button title="Enviar" onPress={handleSubmit(handleRegister)} />
-      </Form>
+            <TransactionTypes>
+              <TransactionTypeButton
+                onPress={() => handleTransactionsTypeSelect("up")}
+                type="up"
+                title="Income"
+                isActive={transactionType === "up"}
+              />
+              <TransactionTypeButton
+                onPress={() => handleTransactionsTypeSelect("down")}
+                type="down"
+                title="Outcome"
+                isActive={transactionType === "down"}
+              />
+            </TransactionTypes>
+            <CategorySelectButton
+              title={category.name}
+              onPress={handleOpenSelectCategoryModal}
+            />
+          </Fields>
+          <Button title="Enviar" onPress={handleSubmit(handleRegister)} />
+        </Form>
 
-      <Modal visible={categoryModalOpen}>
-        <CategorySelect
-          category={category}
-          setCategory={setCategory}
-          closeSelectCategory={handleCloseSelectCategoryModal}
-        />
-      </Modal>
-    </Container>
+        <Modal visible={categoryModalOpen}>
+          <CategorySelect
+            category={category}
+            setCategory={setCategory}
+            closeSelectCategory={handleCloseSelectCategoryModal}
+          />
+        </Modal>
+      </Container>
+    </TouchableWithoutFeedback>
   );
 }
