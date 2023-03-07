@@ -1,5 +1,8 @@
+import * as React from "react";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { Control, FieldValues, useForm } from "react-hook-form";
+import * as Yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { Modal, TouchableWithoutFeedback, Keyboard, Alert } from "react-native";
 
 import { Button } from "../../components/Form/Button";
@@ -24,6 +27,14 @@ interface FormData {
   amount: string;
 }
 
+const schema = Yup.object().shape({
+  name: Yup.string().required("Nome é obrigatório"),
+  amount: Yup.number()
+    .typeError("Informe um valor númerico")
+    .positive("O valor não pode ser negativo")
+    .required("o valor é obrigatório"),
+});
+
 export function Register() {
   const [transactionType, setTransactionType] = useState("");
   const [categoryModalOpen, setCategoryModalOpen] = useState(false);
@@ -33,7 +44,15 @@ export function Register() {
     name: "Category",
   });
 
-  const { control, handleSubmit } = useForm();
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormData>({
+    resolver: yupResolver(schema),
+  });
+
+  const formControll = control as unknown as Control<FieldValues, any>;
 
   function handleTransactionsTypeSelect(type: "up" | "down") {
     setTransactionType(type);
@@ -71,16 +90,18 @@ export function Register() {
           <Fields>
             <InputForm
               name="name"
-              control={control}
+              control={formControll}
               placeholder="Nome"
               autoCapitalize="sentences"
               autoCorrect={false}
+              error={errors.name && errors?.name.message}
             />
             <InputForm
               name="amount"
-              control={control}
+              control={formControll}
               placeholder="Preço"
               keyboardType="numeric"
+              error={errors.amount && errors?.amount.message}
             />
             <TransactionTypes>
               <TransactionTypeButton

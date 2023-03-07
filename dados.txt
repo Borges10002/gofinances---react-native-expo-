@@ -31,5 +31,6 @@ npm i react-native-iphone-x-helper --save
 
   biblioteca  React Hook Form
     https://react-hook-form.com/ 
+  yarn add @hookform/resolvers yup
 
   
