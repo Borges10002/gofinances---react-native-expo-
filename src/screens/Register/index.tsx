@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { useState } from "react";
 import { Control, FieldValues, useForm } from "react-hook-form";
 import * as Yup from "yup";
