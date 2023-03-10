@@ -1,4 +1,5 @@
 import React from "react";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 import { HighlightCard } from "../../components/HighlightCard";
 import {
@@ -82,9 +83,11 @@ export function Dashboard() {
             </User>
           </UserInfo>
 
-          <LogoutButton onPress={() => {}}>
-            <Icon name="power" />
-          </LogoutButton>
+          <GestureHandlerRootView>
+            <LogoutButton onPress={() => {}}>
+              <Icon name="power" />
+            </LogoutButton>
+          </GestureHandlerRootView>
         </UserWrapper>
       </Header>
 

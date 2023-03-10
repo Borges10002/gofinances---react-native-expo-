@@ -1,6 +1,5 @@
-import { ReactNode } from "react";
 import styled, { css } from "styled-components/native";
-import { RectButton, RectButtonProps } from "react-native-gesture-handler";
+import { RectButton } from "react-native-gesture-handler";
 import { Feather } from "@expo/vector-icons";
 import { RFValue } from "react-native-responsive-fontsize";
 
@@ -8,8 +7,7 @@ interface IconProps {
   type: "up" | "down";
 }
 
-interface ContainerProps extends RectButtonProps {
-  children: ReactNode;
+interface ContainerProps {
   isActive: boolean;
   type: "up" | "down";
 }
@@ -20,7 +18,6 @@ export const Container = styled.View<ContainerProps>`
   border: ${({ isActive }) => (isActive ? 0 : 1.5)}px;
   border-style: solid;
   border-color: ${({ theme }) => theme.colors.text};
-
   border-radius: 5px;
 
   ${({ isActive, type }) =>

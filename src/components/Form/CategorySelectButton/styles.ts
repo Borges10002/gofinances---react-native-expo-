@@ -24,3 +24,8 @@ export const Icon = styled(Feather)`
   font-size: ${RFValue(20)}px;
   background-color: ${({ theme }) => theme.colors.text};
 `;
+
+export const CategoryTitle = styled.Text`
+  font-family: ${({ theme }) => theme.fonts.regular};
+  font-size: ${RFValue(14)}px;
+`;
