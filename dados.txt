@@ -40,3 +40,8 @@ npm i react-native-iphone-x-helper --save
    yarn add @react-navigation/native-stack
 
   
+banco local do expo AsyncStorage
+  https://docs.expo.dev/versions/latest/sdk/async-storage/
+  https://react-native-async-storage.github.io/async-storage/docs/usage/
+npx expo install @react-native-async-storage/async-storage
+  
