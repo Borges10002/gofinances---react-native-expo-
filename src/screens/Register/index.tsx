@@ -1,10 +1,14 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useState } from "react";
-import { Control, FieldValues, useForm } from "react-hook-form";
+
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Modal, TouchableWithoutFeedback, Keyboard, Alert } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import uuid from "react-native-uuid";
+
+import { Control, FieldValues, useForm } from "react-hook-form";
+import { useNavigation } from "@react-navigation/native";
 
 import { Button } from "../../components/Form/Button";
 import { CategorySelectButton } from "../../components/Form/CategorySelectButton";
@@ -50,10 +54,13 @@ export function Register() {
   const {
     control,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<FormData>({
     resolver: yupResolver(schema),
   });
+
+  const navigation = useNavigation();
 
   const formControll = control as unknown as Control<FieldValues, any>;
 
@@ -76,6 +83,7 @@ export function Register() {
       return Alert.alert("Selecione a categoria");
 
     const newTransaction = {
+      id: String(uuid.v4()),
       name: form.name,
       amount: form.amount,
       transactionType,
@@ -90,25 +98,17 @@ export function Register() {
       const dataFormatted = [...currentData, newTransaction];
 
       await AsyncStorage.setItem(dataKey, JSON.stringify(dataFormatted));
+
+      reset();
+      setTransactionType("");
+      setCategory({ key: "category", name: "categoria" });
+
+      navigation.navigate("Listagem");
     } catch (error) {
       console.log(newTransaction);
       Alert.alert("Error", "Não foi possivel salvar");
     }
   }
-
-  useEffect(() => {
-    async function loadData() {
-      const data = await AsyncStorage.getItem(dataKey);
-      console.log(JSON.parse(data!));
-    }
-    loadData();
-
-    // async function removeItem() {
-    //   const data = await AsyncStorage.removeItem(dataKey);
-    // }
-
-    // removeItem();
-  }, []);
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>

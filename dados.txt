@@ -44,4 +44,7 @@ banco local do expo AsyncStorage
   https://docs.expo.dev/versions/latest/sdk/async-storage/
   https://react-native-async-storage.github.io/async-storage/docs/usage/
 npx expo install @react-native-async-storage/async-storage
+
+biblioteca que gera id automaticamente 
+  yarn add react-native-uuid
   
