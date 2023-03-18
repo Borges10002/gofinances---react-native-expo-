@@ -62,7 +62,7 @@ export function Register() {
 
   const formControll = control as unknown as Control<FieldValues, any>;
 
-  function handleTransactionsTypeSelect(type: "up" | "down") {
+  function handleTransactionsTypeSelect(type: "positive" | "negative") {
     setTransactionType(type);
   }
 
@@ -84,7 +84,7 @@ export function Register() {
       id: String(uuid.v4()),
       name: form.name,
       amount: form.amount,
-      transactionType,
+      type: transactionType,
       category: category.key,
       date: new Date(),
     };
@@ -135,16 +135,16 @@ export function Register() {
             />
             <TransactionTypes>
               <TransactionTypeButton
-                onPress={() => handleTransactionsTypeSelect("up")}
+                onPress={() => handleTransactionsTypeSelect("positive")}
                 type="up"
                 title="Income"
-                isActive={transactionType === "up"}
+                isActive={transactionType === "positive"}
               />
               <TransactionTypeButton
-                onPress={() => handleTransactionsTypeSelect("down")}
+                onPress={() => handleTransactionsTypeSelect("negative")}
                 type="down"
                 title="Outcome"
-                isActive={transactionType === "down"}
+                isActive={transactionType === "negative"}
               />
             </TransactionTypes>
             <CategorySelectButton
