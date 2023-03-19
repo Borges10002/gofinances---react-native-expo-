@@ -207,6 +207,7 @@ export function Dashboard() {
               lastTransaction={highlightData?.expensives?.lastTransaction}
             />
 
+              
             <HighlightCard
               type='total'
               title='Total'
