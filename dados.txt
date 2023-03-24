@@ -47,4 +47,9 @@ npx expo install @react-native-async-storage/async-storage
 
 biblioteca que gera id automaticamente 
   yarn add react-native-uuid
+
+biblioteca de graficos
+  https://formidable.com/open-source/victory/guides/themes
+  yarn add victory-native
+  yarn add react-native-svg
   
