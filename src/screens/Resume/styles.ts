@@ -42,7 +42,7 @@ export const MonthSelect = styled.View`
   margin-top: 24px;
 `;
 
-export const MonthSelectButton = styled(BorderlessButton)``;
+export const MonthSelectButton = styled<any>(BorderlessButton)``;
 
 export const MonthSelectIcon = styled(Feather)`
   font-size: ${RFValue(24)}px;

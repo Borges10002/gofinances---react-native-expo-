@@ -52,4 +52,8 @@ biblioteca de graficos
   https://formidable.com/open-source/victory/guides/themes
   yarn add victory-native
   yarn add react-native-svg
+
+ biblioteca para lidar com data 
+   https://date-fns.org/
+   yarn add date-fns
   
