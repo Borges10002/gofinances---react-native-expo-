@@ -8,6 +8,7 @@ npm install --save-dev @types/styled-components @types/styled-components-react-n
 
 extensoes vscode
 vscode-styled-components
+Svg Preview - visualizar icon svg
 
 fonts
 expo install @expo-google-fonts/poppins
@@ -56,4 +57,9 @@ biblioteca de graficos
  biblioteca para lidar com data 
    https://date-fns.org/
    yarn add date-fns
+
+  
+  biblioteca sgv 
+    https://github.com/kristerkari/react-native-svg-transformer
+    yarn add --dev react-native-svg-transformer
   
