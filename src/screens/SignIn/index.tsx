@@ -4,19 +4,25 @@ import { RFValue } from "react-native-responsive-fontsize";
 import AppleSvg from "../../assets/apple.svg";
 import GoogleSvg from "../../assets/google.svg";
 import LogoSvg from "../../assets/logo.svg";
+
 import { SignInSocialButton } from "../../components/SignInSocialButton";
+import { useAuth } from "../../hooks/auth";
 
 import {
   Container,
-  Heander,
-  TitleWrapper,
-  Title,
-  SignInTitle,
   Footer,
   FooterWrapper,
+  Heander,
+  SignInTitle,
+  Title,
+  TitleWrapper,
 } from "./styles";
 
 export function SignIn() {
+  const { user } = useAuth();
+
+  console.log(user);
+
   return (
     <Container>
       <Heander>

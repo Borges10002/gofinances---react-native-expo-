@@ -1,25 +1,25 @@
-import "react-native-gesture-handler";
+import * as SplashScreen from "expo-splash-screen";
 import "intl";
 import "intl/locale-data/jsonp/pt-BR";
-import React, { useCallback, useEffect } from "react";
+import React from "react";
 import { StatusBar } from "react-native";
-import * as SplashScreen from "expo-splash-screen";
+import "react-native-gesture-handler";
 
 import AppLoading from "expo-app-loading";
 import { ThemeProvider } from "styled-components";
 
 import {
-  useFonts,
   Poppins_400Regular,
   Poppins_500Medium,
   Poppins_700Bold,
+  useFonts,
 } from "@expo-google-fonts/poppins";
 
 import { NavigationContainer } from "@react-navigation/native";
 
 import theme from "./src/global/styles/theme";
 
-import { AppRoutes } from "./src/routes/app.routes";
+import { AuthProvider } from "./src/hooks/auth";
 import { SignIn } from "./src/screens/SignIn";
 
 SplashScreen.preventAutoHideAsync(); // Keep the splash screen visible while we fetch resources
@@ -56,7 +56,9 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <NavigationContainer>
         <StatusBar barStyle="light-content" />
-        <SignIn />
+        <AuthProvider>
+          <SignIn />
+        </AuthProvider>
       </NavigationContainer>
     </ThemeProvider>
   );
