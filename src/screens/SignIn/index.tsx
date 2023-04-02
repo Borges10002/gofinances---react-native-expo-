@@ -41,8 +41,8 @@ export function SignIn() {
 
       <Footer>
         <FooterWrapper>
-          <SignInSocialButton title="Entrar com Google" svg={GoogleSvg} />
-          <SignInSocialButton title="Entrar com Apple" svg={AppleSvg} />
+          <SignInSocialButton title='Entrar com Google' svg={GoogleSvg} />
+          <SignInSocialButton title='Entrar com Apple' svg={AppleSvg} />
         </FooterWrapper>
       </Footer>
     </Container>

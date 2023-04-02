@@ -135,7 +135,7 @@ export function Resume() {
       </Heander>
       {isLoading ? (
         <LoadContainer>
-          <ActivityIndicator color={theme.colors.primary} size="large" />
+          <ActivityIndicator color={theme.colors.primary} size='large' />
         </LoadContainer>
       ) : (
         <Content
@@ -143,12 +143,11 @@ export function Resume() {
           contentContainerStyle={{
             paddingHorizontal: 24,
             paddingBottom: useBottomTabBarHeight(),
-          }}
-        >
+          }}>
           <MonthSelect>
             <GestureHandlerRootView>
               <MonthSelectButton onPress={() => handleDateChange("prev")}>
-                <MonthSelectIcon name="chevron-left" />
+                <MonthSelectIcon name='chevron-left' />
               </MonthSelectButton>
             </GestureHandlerRootView>
 
@@ -158,7 +157,7 @@ export function Resume() {
 
             <GestureHandlerRootView>
               <MonthSelectButton onPress={() => handleDateChange("next")}>
-                <MonthSelectIcon name="chevron-right" />
+                <MonthSelectIcon name='chevron-right' />
               </MonthSelectButton>
             </GestureHandlerRootView>
           </MonthSelect>
@@ -175,8 +174,8 @@ export function Resume() {
                 },
               }}
               labelRadius={50}
-              x="percent"
-              y="total"
+              x='percent'
+              y='total'
             />
           </ChartContainer>
 

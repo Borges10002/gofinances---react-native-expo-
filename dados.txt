@@ -62,4 +62,8 @@ biblioteca de graficos
   biblioteca sgv 
     https://github.com/kristerkari/react-native-svg-transformer
     yarn add --dev react-native-svg-transformer
-  
+
+id do cliente  
+681129599102-dve2ulmehphn623q92djoaunmeiaa9fr.apps.googleusercontent.com
+
+chave secreata - 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
