@@ -63,7 +63,6 @@ biblioteca de graficos
     https://github.com/kristerkari/react-native-svg-transformer
     yarn add --dev react-native-svg-transformer
 
-id do cliente  
-681129599102-dve2ulmehphn623q92djoaunmeiaa9fr.apps.googleusercontent.com
-
-chave secreata - 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
+  biblioteca de autenticacao
+    https://docs.expo.dev/versions/latest/sdk/auth-session/
+    npx expo install expo-auth-session expo-random
