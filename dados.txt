@@ -66,3 +66,9 @@ biblioteca de graficos
   biblioteca de autenticacao
     https://docs.expo.dev/versions/latest/sdk/auth-session/
     npx expo install expo-auth-session expo-random
+
+  biblioteca para lidar com .env 
+    yarn add babel-plugin-inline-dotenv
+
+  biblioteca para app apple 
+   npx expo install expo-apple-authentication

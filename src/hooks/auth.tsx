@@ -1,5 +1,10 @@
 import React, { createContext, ReactNode, useContext, useState } from "react";
+
+const { CLIENT_ID } = process.env;
+const { REDIRECT_URI } = process.env;
+
 import * as AuthSession from "expo-auth-session";
+import * as AppleAuthentication from "expo-apple-authentication";
 
 interface AuthProviderProps {
   children: ReactNode;
@@ -31,16 +36,10 @@ function AuthProvider({ children }: AuthProviderProps) {
 
   async function signInWithGoogle() {
     try {
-      const CLIENT_ID =
-        "681129599102-dve2ulmehphn623q92djoaunmeiaa9fr.apps.googleusercontent.com";
-      const REDIRECT_URI = "https://auth.expo.io/@borges10002/gofinances";
-
       const RESPONSE_TYPE = "token";
       const SCOPE = encodeURI("profile email");
 
       const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`;
-
-      console.log(authUrl);
 
       const { type, params } = (await AuthSession.startAsync({
         authUrl,
@@ -59,9 +58,31 @@ function AuthProvider({ children }: AuthProviderProps) {
           name: userInfo.given_name,
           photo: userInfo.picture,
         });
-
-        console.log(userInfo);
       }
+    } catch (error: any) {
+      throw new Error(error);
+    }
+  }
+
+  async function signInWithApple() {
+    try {
+      const credential = await AppleAuthentication.signInAsync({
+        requestedScopes: [
+          AppleAuthentication.AppleAuthenticationScope.FULL_NAME,
+          AppleAuthentication.AppleAuthenticationScope.EMAIL,
+        ],
+      });
+
+      if (credential) {
+        const userLogged = {
+          id: String(credential.user),
+          email: credential.email!,
+          name: credential.fullName!.givenName,
+          photo: undefined,
+        };
+      }
+
+      set;
     } catch (error: any) {
       throw new Error(error);
     }
