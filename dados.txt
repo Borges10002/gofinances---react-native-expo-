@@ -72,3 +72,7 @@ biblioteca de graficos
 
   biblioteca para app apple 
    npx expo install expo-apple-authentication
+
+  biblioteca de navegacao 
+  https://reactnavigation.org/docs/stack-navigator
+    yarn add @react-navigation/stack

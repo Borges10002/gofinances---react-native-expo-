@@ -15,12 +15,11 @@ import {
   useFonts,
 } from "@expo-google-fonts/poppins";
 
-import { NavigationContainer } from "@react-navigation/native";
-
 import theme from "./src/global/styles/theme";
 
 import { AuthProvider } from "./src/hooks/auth";
-import { SignIn } from "./src/screens/SignIn";
+
+import { Routes } from "./src/routes";
 
 SplashScreen.preventAutoHideAsync(); // Keep the splash screen visible while we fetch resources
 
@@ -54,12 +53,10 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <NavigationContainer>
-        <StatusBar barStyle="light-content" />
-        <AuthProvider>
-          <SignIn />
-        </AuthProvider>
-      </NavigationContainer>
+      <StatusBar barStyle="light-content" />
+      <AuthProvider>
+        <Routes />
+      </AuthProvider>
     </ThemeProvider>
   );
 }
