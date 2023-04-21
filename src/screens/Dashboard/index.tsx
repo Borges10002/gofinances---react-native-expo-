@@ -5,7 +5,10 @@ import dayjs from "dayjs";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { HighlightCard } from "../../components/HighlightCard";
+
 import { useTheme } from "styled-components";
+import { useAuth } from "../../hooks/auth";
+
 import {
   TransactionCard,
   TransactionCardProps,
@@ -52,6 +55,7 @@ export function Dashboard() {
   );
 
   const theme = useTheme();
+  const { signOut } = useAuth();
 
   function getLastTransactionDate(
     collection: DataListProps[],
@@ -166,7 +170,7 @@ export function Dashboard() {
     <Container>
       {isLoading ? (
         <LoadContainer>
-          <ActivityIndicator color={theme.colors.primary} size='large' />
+          <ActivityIndicator color={theme.colors.primary} size="large" />
         </LoadContainer>
       ) : (
         <>
@@ -185,8 +189,8 @@ export function Dashboard() {
               </UserInfo>
 
               <GestureHandlerRootView>
-                <LogoutButton onPress={() => {}}>
-                  <Icon name='power' />
+                <LogoutButton onPress={signOut}>
+                  <Icon name="power" />
                 </LogoutButton>
               </GestureHandlerRootView>
             </UserWrapper>
@@ -194,23 +198,22 @@ export function Dashboard() {
 
           <HighlightCards>
             <HighlightCard
-              type='up'
-              title='Entradas'
+              type="up"
+              title="Entradas"
               amount={highlightData?.entries?.amount}
               lastTransaction={highlightData?.entries?.lastTransaction}
             />
 
             <HighlightCard
-              type='down'
-              title='Saídas'
+              type="down"
+              title="Saídas"
               amount={highlightData?.expensives?.amount}
               lastTransaction={highlightData?.expensives?.lastTransaction}
             />
 
-              
             <HighlightCard
-              type='total'
-              title='Total'
+              type="total"
+              title="Total"
               amount={highlightData?.total?.amount}
               lastTransaction={highlightData?.total?.lastTransaction}
             />

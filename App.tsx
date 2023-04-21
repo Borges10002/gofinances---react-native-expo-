@@ -17,7 +17,7 @@ import {
 
 import theme from "./src/global/styles/theme";
 
-import { AuthProvider } from "./src/hooks/auth";
+import { AuthProvider, useAuth } from "./src/hooks/auth";
 
 import { Routes } from "./src/routes";
 
@@ -29,6 +29,8 @@ export default function App() {
     Poppins_500Medium,
     Poppins_700Bold,
   });
+
+  const { userStorageLoading } = useAuth();
 
   // useEffect(() => {
   //   async function prepare() {
@@ -47,7 +49,7 @@ export default function App() {
   //   return null;
   // }
 
-  if (!fontsLoaded) {
+  if (!fontsLoaded || userStorageLoading) {
     return <AppLoading />;
   }
 
