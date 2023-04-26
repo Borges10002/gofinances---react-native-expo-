@@ -76,3 +76,6 @@ biblioteca de graficos
   biblioteca de navegacao 
   https://reactnavigation.org/docs/stack-navigator
     yarn add @react-navigation/stack
+
+  biblioteca de fotos 
+    https://ui-avatars.com/
