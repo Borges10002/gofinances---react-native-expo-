@@ -27,6 +27,7 @@ import {
   LoadContainer,
 } from "./styles";
 import { RFValue } from "react-native-responsive-fontsize";
+import { useAuth } from "../../hooks/auth";
 
 interface TransactionData {
   type: "positive" | "negative";
@@ -54,6 +55,7 @@ export function Resume() {
   );
 
   const theme = useTheme();
+  const { user } = useAuth();
 
   function handleDateChange(action: "next" | "prev") {
     if (action === "next") {
@@ -68,7 +70,7 @@ export function Resume() {
   async function loadData() {
     setIsLoading(true);
 
-    const datakey = "@gofinances:transactions";
+    const datakey = `@gofinances:transactions_user:${user.id}`;
 
     const response = await AsyncStorage.getItem(datakey);
     const responseFormatted = response ? JSON.parse(response) : [];
@@ -135,7 +137,7 @@ export function Resume() {
       </Heander>
       {isLoading ? (
         <LoadContainer>
-          <ActivityIndicator color={theme.colors.primary} size='large' />
+          <ActivityIndicator color={theme.colors.primary} size="large" />
         </LoadContainer>
       ) : (
         <Content
@@ -143,11 +145,12 @@ export function Resume() {
           contentContainerStyle={{
             paddingHorizontal: 24,
             paddingBottom: useBottomTabBarHeight(),
-          }}>
+          }}
+        >
           <MonthSelect>
             <GestureHandlerRootView>
               <MonthSelectButton onPress={() => handleDateChange("prev")}>
-                <MonthSelectIcon name='chevron-left' />
+                <MonthSelectIcon name="chevron-left" />
               </MonthSelectButton>
             </GestureHandlerRootView>
 
@@ -157,7 +160,7 @@ export function Resume() {
 
             <GestureHandlerRootView>
               <MonthSelectButton onPress={() => handleDateChange("next")}>
-                <MonthSelectIcon name='chevron-right' />
+                <MonthSelectIcon name="chevron-right" />
               </MonthSelectButton>
             </GestureHandlerRootView>
           </MonthSelect>
@@ -174,8 +177,8 @@ export function Resume() {
                 },
               }}
               labelRadius={50}
-              x='percent'
-              y='total'
+              x="percent"
+              y="total"
             />
           </ChartContainer>
 
