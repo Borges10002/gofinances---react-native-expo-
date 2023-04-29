@@ -1,7 +1,7 @@
 import * as SplashScreen from "expo-splash-screen";
 import "intl";
 import "intl/locale-data/jsonp/pt-BR";
-import React from "react";
+import React, { useEffect } from "react";
 import { StatusBar } from "react-native";
 import "react-native-gesture-handler";
 
@@ -32,26 +32,27 @@ export default function App() {
 
   const { userStorageLoading } = useAuth();
 
-  // useEffect(() => {
-  //   async function prepare() {
-  //     await SplashScreen.preventAutoHideAsync();
-  //   }
-  //   prepare();
-  // }, []);
+  useEffect(() => {
+    const showSplashScreen = async () => {
+      await SplashScreen.preventAutoHideAsync();
+    };
 
-  // const onLayoutRootView = useCallback(async () => {
-  //   if (fontsLoaded) {
-  //     await SplashScreen.hideAsync();
-  //   }
-  // }, [fontsLoaded]);
+    showSplashScreen();
+  }, []);
 
-  // if (!fontsLoaded) {
-  //   return null;
+  useEffect(() => {
+    const hideSplashScreen = async () => {
+      await SplashScreen.hideAsync();
+    };
+
+    if (fontsLoaded) hideSplashScreen();
+  }, [fontsLoaded]);
+
+  if (!fontsLoaded || userStorageLoading) return null;
+
+  // if (!fontsLoaded || userStorageLoading) {
+  //   return <AppLoading />;
   // }
-
-  if (!fontsLoaded || userStorageLoading) {
-    return <AppLoading />;
-  }
 
   return (
     <ThemeProvider theme={theme}>
