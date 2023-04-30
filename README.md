@@ -37,9 +37,9 @@ As seguintes ferramentas foram usadas na construção do projeto:
     <td align="center">Cards</td>
   </tr>
   <tr>
-    <td><img src="https://github.com/Borges10002/PlantManager-NLW-05/blob/main/src/assets/imgs/1-Splash.png" width=200 height=400></td>
-    <td><img src="https://github.com/Borges10002/PlantManager-NLW-05/blob/main/src/assets/imgs/2-Bem%20vindo.png" width=200 height=400></td>
-    <td><img src="https://github.com/Borges10002/PlantManager-NLW-05/blob/main/src/assets/imgs/3%20-Confirmar%20nome.png" width=200 height=400></td>
+    <td><img src="https://github.com/Borges10002/gofinances---react-native-expo-/blob/main/src/assets/imgs/inicio.png" width=200 height=600></td>
+    <td><img src="https://github.com/Borges10002/gofinances---react-native-expo-/blob/main/src/assets/imgs/menu.png" width=200 height=600></td>
+    <td><img src="https://github.com/Borges10002/gofinances---react-native-expo-/blob/main/src/assets/imgs/Cards.png" width=200 height=600></td>
   </tr>
  </table>
 
@@ -49,7 +49,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
      <td align="center">Resumo</td>
   </tr>
   <tr>
-    <td><img src="https://github.com/Borges10002/PlantManager-NLW-05/blob/main/src/assets/imgs/6-Escolha%20uma%20planta.jpg" width=200 height=400></td>
-     <td><img src="https://github.com/Borges10002/PlantManager-NLW-05/blob/main/src/assets/imgs/8-Tudo%20certo.png" width=200 height=400></td>
+    <td><img src="https://github.com/Borges10002/gofinances---react-native-expo-/blob/main/src/assets/imgs/Cadastro.png" width=200 height=400></td>
+     <td><img src="https://github.com/Borges10002/gofinances---react-native-expo-/blob/main/src/assets/imgs/Resumo.png" width=200 height=400></td>
   </tr>
  </table>
