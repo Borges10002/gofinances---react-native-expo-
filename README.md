@@ -39,7 +39,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
   <tr>
     <td><img src="https://github.com/Borges10002/gofinances---react-native-expo-/blob/main/src/assets/imgs/inicio.png" width=200 height=400></td>
     <td><img src="https://github.com/Borges10002/gofinances---react-native-expo-/blob/main/src/assets/imgs/menu.png" width=200 height=400></td>
-    <td><img src="https://github.com/Borges10002/gofinances---react-native-expo-/blob/main/src/assets/imgs/Cards.png" width=200 height=400></td>
+    <td><img src="https://github.com/Borges10002/gofinances---react-native-expo-/blob/main/src/assets/imgs/Cards.png" width=400 height=400></td>
   </tr>
  </table>
 
