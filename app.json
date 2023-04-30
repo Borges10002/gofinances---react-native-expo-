@@ -4,13 +4,19 @@
     "slug": "gofinances",
     "scheme": "gofinances",
     "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "privacy": "public",
+    "platforms": ["ios", "android"],
+    "assetBundlePatterns": ["**/*"],
     "extra": {
       "eas": {
         "projectId": "ac9ac7b2-ee4c-485f-a4aa-f3f20b10f4d6"
       }
+    },
+    "android": {
+      "package": "com.borges10002.gofinances"
     }
-  }
+  },
+
+  "name": "gofinances",
+  "displayName": "gofinances"
 }

@@ -62,22 +62,26 @@ function AuthProvider({ children }: AuthProviderProps) {
         const response = await fetch(
           `https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${params.access_token}`
         );
-
         const userInfo = await response.json();
+        // console.log(userInfo);
 
-        const userLogged = {
+        const userInfoFormatted = {
           id: userInfo.id,
           email: userInfo.email,
           name: userInfo.given_name,
           photo: userInfo.picture,
         };
 
-        setUser(userLogged);
+        setUser(userInfoFormatted);
 
-        await AsyncStorage.setItem(userStorageKey, JSON.stringify(userLogged));
+        await AsyncStorage.setItem(
+          userStorageKey,
+          JSON.stringify(userInfoFormatted)
+        );
       }
-    } catch (error: any) {
-      throw new Error(error);
+    } catch (err) {
+      console.log(err);
+      throw new Error(err as string);
     }
   }
 
@@ -138,8 +142,7 @@ function AuthProvider({ children }: AuthProviderProps) {
         signInWithApple,
         signOut,
         userStorageLoading,
-      }}
-    >
+      }}>
       {children}
     </AuthContext.Provider>
   );
