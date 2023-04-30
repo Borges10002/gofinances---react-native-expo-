@@ -33,13 +33,12 @@ As seguintes ferramentas foram usadas na construção do projeto:
 <table align="center" display=flex>
   <tr>
     <td align="center">Inicio</td>
-    <td align="center">Menu</td>
-    <td align="center">Cards</td>
+    <td align="center">Menu</td>    
   </tr>
   <tr>
-    <td><img src="https://github.com/Borges10002/gofinances---react-native-expo-/blob/main/src/assets/imgs/inicio.png" width=200 height=400></td>
+    <td><img src="https://github.com/Borges10002/gofinances---react-native-expo-/blob/main/src/assets/imgs/In%C3%ADcio.png" width=200 height=400></td>
     <td><img src="https://github.com/Borges10002/gofinances---react-native-expo-/blob/main/src/assets/imgs/menu.png" width=200 height=400></td>
-    <td><img src="https://github.com/Borges10002/gofinances---react-native-expo-/blob/main/src/assets/imgs/Cards.png" width=400 height=400></td>
+
   </tr>
  </table>
 
