@@ -8,6 +8,7 @@ Projeto: 🚀 Concluído 🚀
  <a href="#-objetivo">Objetivo</a> •
  <a href="#-telas">Telas</a> •
  <a href="#-tecnologias">Tecnologias</a> • 
+ <a href="#-tecnologias">Tecnologias</a> • 
 </p>
 
 ## 💻 Objetivo

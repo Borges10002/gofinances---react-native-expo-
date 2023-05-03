@@ -1,0 +1,214 @@
+> Configure project :expo
+
+Using expo modules
+  - expo-application (4.2.2)
+  - expo-constants (13.2.4)
+  - expo-crypto (11.0.0)
+  - expo-error-recovery (3.2.0)
+  - expo-file-system (14.1.0)
+  - expo-font (10.2.1)
+  - expo-keep-awake (10.2.0)
+  - expo-modules-core (0.11.8)
+  - expo-random (12.3.0)
+  - expo-splash-screen (0.16.2)
+  - expo-web-browser (11.0.0)
+
+WARNING:Software Components will not be created automatically for Maven publishing from Android Gradle Plugin 8.0. To opt-in to the future behavior, set the Gradle property android.disableAutomaticComponentCreation=true in the `gradle.properties` file or use the new publishing DSL.
+
+The Kotlin Gradle plugin was loaded multiple times in different subprojects, which is not supported and may break the build. 
+This might happen in subprojects that apply the Kotlin plugins with the Gradle 'plugins { ... }' DSL if they specify explicit versions, even if the versions are equal.
+Please add the Kotlin plugin to the common parent project or the root project, then remove the versions in the subprojects.   
+If the parent project does not need the plugin, add 'apply false' to the plugin line.
+See: https://docs.gradle.org/current/userguide/plugins.html#sec:subprojects_plugins_dsl
+The Kotlin plugin was loaded in the following projects: ':expo', ':expo-modules-core'
+
+> Task :app:signingReport
+Variant: debug
+Config: debug
+Store: C:\Users\borges\Desktop\rockeset\gofinances---react-native-expo-\android\app\debug.keystore
+Alias: androiddebugkey
+MD5: 20:F4:61:48:B7:2D:8E:5E:5C:A2:3D:37:A4:F4:14:90
+SHA1: 5E:8F:16:06:2E:A3:CD:2C:4A:0D:54:78:76:BA:A6:F3:8C:AB:F6:25
+SHA-256: FA:C6:17:45:DC:09:03:78:6F:B9:ED:E6:2A:96:2B:39:9F:73:48:F0:BB:6F:89:9B:83:32:66:75:91:03:3B:9C
+Valid until: terþa-feira, 30 de abril de 2052
+----------
+Variant: release
+Config: debug
+Store: C:\Users\borges\Desktop\rockeset\gofinances---react-native-expo-\android\app\debug.keystore
+Alias: androiddebugkey
+MD5: 20:F4:61:48:B7:2D:8E:5E:5C:A2:3D:37:A4:F4:14:90
+SHA1: 5E:8F:16:06:2E:A3:CD:2C:4A:0D:54:78:76:BA:A6:F3:8C:AB:F6:25
+SHA-256: FA:C6:17:45:DC:09:03:78:6F:B9:ED:E6:2A:96:2B:39:9F:73:48:F0:BB:6F:89:9B:83:32:66:75:91:03:3B:9C
+Valid until: terþa-feira, 30 de abril de 2052
+----------
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\borges\Desktop\rockeset\gofinances---react-native-expo-\android\app\debug.keystore
+Alias: androiddebugkey
+MD5: 20:F4:61:48:B7:2D:8E:5E:5C:A2:3D:37:A4:F4:14:90
+SHA1: 5E:8F:16:06:2E:A3:CD:2C:4A:0D:54:78:76:BA:A6:F3:8C:AB:F6:25
+SHA-256: FA:C6:17:45:DC:09:03:78:6F:B9:ED:E6:2A:96:2B:39:9F:73:48:F0:BB:6F:89:9B:83:32:66:75:91:03:3B:9C
+Valid until: terþa-feira, 30 de abril de 2052
+----------
+
+> Task :expo:signingReport
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\borges\.android\debug.keystore
+Alias: AndroidDebugKey
+Error: Missing keystore
+----------
+
+> Task :expo-application:signingReport
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\borges\.android\debug.keystore
+Alias: AndroidDebugKey
+Error: Missing keystore
+----------
+
+> Task :expo-constants:signingReport
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\borges\.android\debug.keystore
+Alias: AndroidDebugKey
+Error: Missing keystore
+----------
+
+> Task :expo-crypto:signingReport
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\borges\.android\debug.keystore
+Alias: AndroidDebugKey
+Error: Missing keystore
+----------
+
+> Task :expo-error-recovery:signingReport
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\borges\.android\debug.keystore
+Alias: AndroidDebugKey
+Error: Missing keystore
+----------
+
+> Task :expo-file-system:signingReport
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\borges\.android\debug.keystore
+Alias: AndroidDebugKey
+Error: Missing keystore
+----------
+
+> Task :expo-font:signingReport
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\borges\.android\debug.keystore
+Alias: AndroidDebugKey
+Error: Missing keystore
+----------
+
+> Task :expo-keep-awake:signingReport
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\borges\.android\debug.keystore
+Alias: AndroidDebugKey
+Error: Missing keystore
+----------
+
+> Task :expo-modules-core:signingReport
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\borges\.android\debug.keystore
+Alias: AndroidDebugKey
+Error: Missing keystore
+----------
+
+> Task :expo-random:signingReport
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\borges\.android\debug.keystore
+Alias: AndroidDebugKey
+Error: Missing keystore
+----------
+
+> Task :expo-splash-screen:signingReport
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\borges\.android\debug.keystore
+Alias: AndroidDebugKey
+Error: Missing keystore
+----------
+
+> Task :expo-web-browser:signingReport
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\borges\.android\debug.keystore
+Alias: AndroidDebugKey
+Error: Missing keystore
+----------
+
+> Task :react-native-async-storage_async-storage:signingReport
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\borges\.android\debug.keystore
+Alias: AndroidDebugKey
+Error: Missing keystore
+----------
+
+> Task :react-native-gesture-handler:signingReport
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\borges\.android\debug.keystore
+Alias: AndroidDebugKey
+Error: Missing keystore
+----------
+
+> Task :react-native-safe-area-context:signingReport
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\borges\.android\debug.keystore
+Alias: AndroidDebugKey
+Error: Missing keystore
+----------
+
+> Task :react-native-screens:signingReport
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\borges\.android\debug.keystore
+Alias: AndroidDebugKey
+Error: Missing keystore
+----------
+
+> Task :react-native-svg:signingReport
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\borges\.android\debug.keystore
+Alias: AndroidDebugKey
+Error: Missing keystore
+----------
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+
+or plugins.
+
+See https://docs.gradle.org/7.3.3/userguide/command_line_interface.html#sec:command_line_warnings
+
+BUILD SUCCESSFUL in 1m 20s
+24 actionable tasks: 24 executed
+PS C:\Users\borges\Desktop\rockeset\gofinances---react-native-expo-\android>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
