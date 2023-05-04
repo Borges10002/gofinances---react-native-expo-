@@ -48,6 +48,8 @@ export default function App() {
     if (fontsLoaded) hideSplashScreen();
   }, [fontsLoaded]);
 
+  console.log(userStorageLoading);
+
   if (!fontsLoaded || userStorageLoading) return null;
 
   // if (!fontsLoaded || userStorageLoading) {
@@ -56,7 +58,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <StatusBar barStyle="light-content" />
+      <StatusBar barStyle='light-content' />
       <AuthProvider>
         <Routes />
       </AuthProvider>
