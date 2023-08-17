@@ -79,3 +79,9 @@ biblioteca de graficos
 
   biblioteca de fotos 
     https://ui-avatars.com/
+
+  
+  biblioteca para teste em react native 
+    https://jestjs.io/docs/tutorial-react-native
+   yarn add --dev @testing-library/react-native
+   yarn add --dev @testing-library/jest-native
