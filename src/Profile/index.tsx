@@ -6,9 +6,18 @@ export function Profile() {
     <View>
       <Text>Perfil</Text>
 
-      <TextInput placeholder="Nome" autoCorrect={false} />
+      <TextInput
+        value="diego"
+        testID="input-name"
+        placeholder="Nome"
+        autoCorrect={false}
+      />
 
-      <TextInput placeholder="Sobrenome" />
+      <TextInput
+        value="borges"
+        testID="input-surname"
+        placeholder="Sobrenome"
+      />
 
       <Button title="Salvar" onPress={() => {}} />
     </View>
