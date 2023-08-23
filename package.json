@@ -60,11 +60,5 @@
     "react-native-svg-transformer": "^1.0.0",
     "typescript": "^4.6.3"
   },
-  "jest": {
-    "preset": "jest-expo",
-    "setupFilesAfterEnv": [
-      "@testing-library/jest-native/extend-expect"
-    ]
-  },
   "private": true
 }
