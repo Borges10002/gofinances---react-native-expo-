@@ -85,3 +85,7 @@ biblioteca de graficos
     https://jestjs.io/docs/tutorial-react-native
    yarn add --dev @testing-library/react-native
    yarn add --dev @testing-library/jest-native
+
+  biblioteca para teste em react native styles components
+  https://github.com/styled-components/jest-styled-components
+  yarn add --dev jest-styled-components
