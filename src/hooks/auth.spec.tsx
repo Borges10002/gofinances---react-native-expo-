@@ -2,8 +2,35 @@ import { renderHook, act } from "@testing-library/react-native";
 
 import { AuthProvider, useAuth } from "./auth";
 
+jest.mock("expo-auth-session", () => {
+  return {
+    startAsync: () => {
+      return {
+        type: "success",
+        params: {
+          acess_token: "token",
+        },
+      };
+    },
+  };
+});
+
 describe("Auth Hook", () => {
   it("should be able to sign in with Google account existing", async () => {
+    global.fetch = jest.fn(() =>
+      Promise.resolve({
+        json: () =>
+          Promise.resolve({
+            id: `userInfo.id`,
+            email: `userInfo.email`,
+            name: `userInfo.name`,
+            photo: `userInfo.picture`,
+            locale: `userInfo.locale`,
+            verified_email: `userInfo.verified_email`,
+          }),
+      })
+    ) as jest.Mock;
+
     const { result } = renderHook(() => useAuth(), {
       wrapper: AuthProvider,
     });

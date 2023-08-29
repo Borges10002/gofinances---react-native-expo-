@@ -10,8 +10,8 @@ const { CLIENT_ID } = process.env;
 const { REDIRECT_URI } = process.env;
 
 import * as AuthSession from "expo-auth-session";
-import * as AppleAuthentication from "expo-apple-authentication";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+//import * as AppleAuthentication from "expo-apple-authentication";
+// import AsyncStorage from "@react-native-async-storage/async-storage";
 
 interface AuthProviderProps {
   children: ReactNode;
@@ -74,7 +74,7 @@ function AuthProvider({ children }: AuthProviderProps) {
 
         setUser(userLogged);
 
-        await AsyncStorage.setItem(userStorageKey, JSON.stringify(userLogged));
+        //    await AsyncStorage.setItem(userStorageKey, JSON.stringify(userLogged));
       }
     } catch (error: any) {
       throw new Error(error);
@@ -83,28 +83,24 @@ function AuthProvider({ children }: AuthProviderProps) {
 
   async function signInWithApple() {
     try {
-      const credential = await AppleAuthentication.signInAsync({
-        requestedScopes: [
-          AppleAuthentication.AppleAuthenticationScope.FULL_NAME,
-          AppleAuthentication.AppleAuthenticationScope.EMAIL,
-        ],
-      });
-
-      if (credential) {
-        const name = credential.fullName!.givenName!;
-        const photo = `https://ui-avatars.com/api/?name=${name}&length=1`;
-
-        const userLogged = {
-          id: String(credential.user),
-          email: credential.email!,
-          name,
-          photo,
-        };
-
-        setUser(userLogged);
-
-        await AsyncStorage.setItem(userStorageKey, JSON.stringify(userLogged));
-      }
+      // const credential = await AppleAuthentication.signInAsync({
+      //   requestedScopes: [
+      //     AppleAuthentication.AppleAuthenticationScope.FULL_NAME,
+      //     AppleAuthentication.AppleAuthenticationScope.EMAIL,
+      //   ],
+      // });
+      // if (credential) {
+      //   const name = credential.fullName!.givenName!;
+      //   const photo = `https://ui-avatars.com/api/?name=${name}&length=1`;
+      //   const userLogged = {
+      //     id: String(credential.user),
+      //     email: credential.email!,
+      //     name,
+      //     photo,
+      //   };
+      //   setUser(userLogged);
+      // await AsyncStorage.setItem(userStorageKey, JSON.stringify(userLogged));
+      //}
     } catch (error: any) {
       throw new Error(error);
     }
@@ -112,17 +108,17 @@ function AuthProvider({ children }: AuthProviderProps) {
 
   async function signOut() {
     setUser({} as User);
-    await AsyncStorage.removeItem(userStorageKey);
+    // await AsyncStorage.removeItem(userStorageKey);
   }
 
   useEffect(() => {
     async function loadUserStorageDate() {
-      const userStoraged = await AsyncStorage.getItem(userStorageKey);
+      // const userStoraged = await AsyncStorage.getItem(userStorageKey);
 
-      if (userStoraged) {
-        const userLogged = JSON.parse(userStoraged) as User;
-        setUser(userLogged);
-      }
+      // if (userStoraged) {
+      //   const userLogged = JSON.parse(userStoraged) as User;
+      //   setUser(userLogged);
+      // }
 
       setUserStorageLoading(false);
     }

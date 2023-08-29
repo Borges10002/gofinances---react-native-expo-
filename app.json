@@ -5,13 +5,8 @@
     "scheme": "gofinances",
     "version": "1.0.0",
     "orientation": "portrait",
-    "platforms": [
-      "ios",
-      "android"
-    ],
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "platforms": ["ios", "android"],
+    "assetBundlePatterns": ["**/*"],
     "extra": {
       "eas": {
         "projectId": "ac9ac7b2-ee4c-485f-a4aa-f3f20b10f4d6"
