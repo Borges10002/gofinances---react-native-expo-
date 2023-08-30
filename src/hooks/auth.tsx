@@ -1,17 +1,16 @@
 import React, {
-  createContext,
   ReactNode,
+  createContext,
   useContext,
-  useState,
   useEffect,
+  useState,
 } from "react";
 
 const { CLIENT_ID } = process.env;
 const { REDIRECT_URI } = process.env;
 
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as AuthSession from "expo-auth-session";
-//import * as AppleAuthentication from "expo-apple-authentication";
-// import AsyncStorage from "@react-native-async-storage/async-storage";
 
 interface AuthProviderProps {
   children: ReactNode;
@@ -74,7 +73,7 @@ function AuthProvider({ children }: AuthProviderProps) {
 
         setUser(userLogged);
 
-        //    await AsyncStorage.setItem(userStorageKey, JSON.stringify(userLogged));
+        await AsyncStorage.setItem(userStorageKey, JSON.stringify(userLogged));
       }
     } catch (error: any) {
       throw new Error(error);
@@ -108,17 +107,17 @@ function AuthProvider({ children }: AuthProviderProps) {
 
   async function signOut() {
     setUser({} as User);
-    // await AsyncStorage.removeItem(userStorageKey);
+    await AsyncStorage.removeItem(userStorageKey);
   }
 
   useEffect(() => {
     async function loadUserStorageDate() {
-      // const userStoraged = await AsyncStorage.getItem(userStorageKey);
+      const userStoraged = await AsyncStorage.getItem(userStorageKey);
 
-      // if (userStoraged) {
-      //   const userLogged = JSON.parse(userStoraged) as User;
-      //   setUser(userLogged);
-      // }
+      if (userStoraged) {
+        const userLogged = JSON.parse(userStoraged) as User;
+        setUser(userLogged);
+      }
 
       setUserStorageLoading(false);
     }
