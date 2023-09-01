@@ -1,6 +1,10 @@
 {
+  "name": "gofinances",
+  "displayName": "gofinances",
+
   "expo": {
     "name": "My Finances",
+    "icon": "./assets/logo.png",
     "slug": "gofinances",
     "scheme": "gofinances",
     "version": "1.0.0",
@@ -13,13 +17,12 @@
       }
     },
     "ios": {
-      "bundleIdentifier": "com.borges10002.gofinances"
+      "bundleIdentifier": "com.gofinances",
+      "buildNumber": "1.0.0"
     },
     "android": {
-      "bundleIdentifier": "com.borges10002.gofinances",
-      "package": "com.borges10002.gofinances"
+      "package": "com.gofinances",
+      "versionCode": "1"
     }
-  },
-  "name": "gofinances",
-  "displayName": "gofinances"
+  }
 }
