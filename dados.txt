@@ -93,3 +93,7 @@ biblioteca de graficos
   biblioteca para teste de hook de autenticacao
     https://github.com/testing-library/react-hooks-testing-library
     @testing-library/react-hooks
+
+
+  deixar os teste rodando automaticamente 
+    yarn test --watchAll
