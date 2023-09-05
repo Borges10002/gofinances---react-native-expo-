@@ -7,7 +7,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { HighlightCard } from "../../components/HighlightCard";
 
 import { useTheme } from "styled-components";
-import { useAuth } from "../../hooks/auth";
+import { useAuth } from "../../hooks/bkp---auth";
 
 import {
   TransactionCard,

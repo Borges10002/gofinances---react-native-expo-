@@ -8,7 +8,7 @@ import uuid from "react-native-uuid";
 
 import { Control, FieldValues, useForm } from "react-hook-form";
 import { useNavigation } from "@react-navigation/native";
-import { useAuth } from "../../hooks/auth";
+import { useAuth } from "../../hooks/bkp---auth";
 
 import { Button } from "../../components/Form/Button";
 import { CategorySelectButton } from "../../components/Form/CategorySelectButton";

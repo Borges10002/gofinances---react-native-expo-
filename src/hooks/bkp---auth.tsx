@@ -6,14 +6,11 @@ import React, {
   useState,
 } from "react";
 
-import * as Google from "expo-auth-session/providers/google";
-import * as WebBrowser from "expo-web-browser";
-
-import { ANDROID_CLIENT_ID } from "@env";
-// const { REDIRECT_URI } = process.env;
+const { CLIENT_ID } = process.env;
+const { REDIRECT_URI } = process.env;
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { Alert } from "react-native";
+import * as AuthSession from "expo-auth-session";
 
 interface AuthProviderProps {
   children: ReactNode;
@@ -41,31 +38,43 @@ interface AuthorizationResponse {
   type: string;
 }
 
-WebBrowser.maybeCompleteAuthSession();
-
 const AuthContext = createContext({} as IAuthContextData);
 
 function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<User>({} as User);
-  const [isAuthenticating, setIsAuthenticating] = useState(false);
   const [userStorageLoading, setUserStorageLoading] = useState(true);
 
   const userStorageKey = "@gofinances:user";
 
-  const [_, response, googleSigIn] = Google.useAuthRequest({
-    androidClientId: ANDROID_CLIENT_ID,
-    scopes: ["profile", "email"],
-  });
-
   async function signInWithGoogle() {
-    setIsAuthenticating(true);
-
     try {
-      googleSigIn().then((response) => {
-        if (response.type !== "success") {
-          setIsAuthenticating(false);
-        }
-      });
+      const RESPONSE_TYPE = "token";
+      const SCOPE = encodeURI("profile email");
+
+      const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`;
+
+      const { type, params } = (await AuthSession.startAsync({
+        authUrl,
+      })) as AuthorizationResponse;
+
+      if (type === "success") {
+        const response = await fetch(
+          `https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${params.access_token}`
+        );
+
+        const userInfo = await response.json();
+
+        const userLogged = {
+          id: userInfo.id,
+          email: userInfo.email,
+          name: userInfo.given_name,
+          photo: userInfo.picture,
+        };
+
+        setUser(userLogged);
+
+        await AsyncStorage.setItem(userStorageKey, JSON.stringify(userLogged));
+      }
     } catch (error: any) {
       throw new Error(error);
     }
@@ -100,44 +109,6 @@ function AuthProvider({ children }: AuthProviderProps) {
     setUser({} as User);
     await AsyncStorage.removeItem(userStorageKey);
   }
-
-  useEffect(() => {
-    async function getDate() {
-      if (response?.type === "success") {
-        if (response.authentication?.idToken) {
-          const result = await fetch(
-            `https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=${response.authentication?.idToken}`
-          );
-
-          const userInfo = await result.json();
-
-          const userLogged = {
-            id: userInfo.email,
-            email: userInfo.email,
-            name: userInfo.given_name,
-            photo: userInfo.picture,
-          };
-
-          console.log(userLogged);
-
-          setUser(userLogged);
-
-          await AsyncStorage.setItem(
-            userStorageKey,
-            JSON.stringify(userLogged)
-          );
-        } else {
-          Alert.alert(
-            "Entrar",
-            "Não foi possível conectar-se a sua conta Google."
-          );
-          setIsAuthenticating(false);
-        }
-      }
-    }
-
-    getDate();
-  }, [response]);
 
   useEffect(() => {
     async function loadUserStorageDate() {

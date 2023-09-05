@@ -2,7 +2,7 @@ import "jest-fetch-mock";
 import mockAsyncStorage from "@react-native-async-storage/async-storage/jest/async-storage-mock";
 import { renderHook, act } from "@testing-library/react-hooks";
 import { mocked } from "jest-mock";
-import { AuthProvider, useAuth } from "./auth";
+import { AuthProvider, useAuth } from "./bkp---auth";
 import { startAsync } from "expo-auth-session";
 import fetchMock from "jest-fetch-mock";
 
